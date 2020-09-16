@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/sebin-vincent/Treasure_Hunt/issues"
   },
-  "homepage": "https://github.com/sebin-vincent/Treasure_Hunt#readme"
+  "homepage": "https://github.com/sebin-vincent/Treasure_Hunt#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
