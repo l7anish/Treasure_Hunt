@@ -1,0 +1,5 @@
+{
+    "name": "Treasure-hunt App-development",
+    "port": 8081,
+    "db":"mongodb://localhost/treasure-hunt_test"
+}
