@@ -1,5 +1,5 @@
 {
-    "name":"Treasure-hunt-default",
+    "name":"Treasure-hunt",
     "port": 8081,
     "db":"mongodb://localhost/treasure-hunt"
 }
