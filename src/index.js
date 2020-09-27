@@ -12,11 +12,13 @@ process.env.NODE_ENV=app.get('env');
 
 logging.initializeLogger();
 
-logger.info(`environment :`+process.env.NODE_ENV);
 
 database.initializeDB();
 
 routes.initializeRoutes(app);
+
+logger.info(`environment :`+process.env.NODE_ENV);
+
 
 
 

@@ -6,7 +6,6 @@ let PUBLIC_KEY;
 const setupPublicKey=async ()=>{
 
     PUBLIC_KEY=await authSetup.readPublicKey();
-    console.log("public key configured");
 }
 
 setupPublicKey();

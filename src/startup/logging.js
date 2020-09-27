@@ -9,7 +9,7 @@ exports.initializeLogger = (app) => {
         return `${timestamp} ${level}: ${message}`;
       });
 
-    if(process.env.NODE_ENV==='development'){
+    if((process.env.NODE_ENV==='development') || (process.env.NODE_ENV==='test')){
         logger.add(new logger.transports.Console(
             {colorise: true,
             prettyPrint: true,
