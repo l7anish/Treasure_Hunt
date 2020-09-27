@@ -4,6 +4,7 @@ const User=require('../model/user');
 const Contest=require('../model/contest');
 const mongoose=require('mongoose');
 const Joi = require('joi');
+Joi.objectId= require('joi-objectid')(Joi);
 
 exports.getCurrentQuestion=async (req,resp)=>{
 

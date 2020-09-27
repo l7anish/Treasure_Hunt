@@ -4,7 +4,10 @@
   "description": "Treasure Hunt",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --verbose"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
@@ -25,9 +28,13 @@
     "joi-objectid": "^3.0.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.5",
-    "winston": "^3.3.3"
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.0"
   },
   "devDependencies": {
-    "jest": "^26.4.2"
+    "jest": "^26.4.2",
+    "mongodb-memory-server": "^6.8.0",
+    "rewire": "^5.0.0",
+    "supertest": "^5.0.0"
   }
 }

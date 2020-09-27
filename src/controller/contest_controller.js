@@ -8,6 +8,6 @@ exports.getActiveContests=async (req,resp)=>{
 
     contests=contests ? contests: [];
 
-    resp.status(200).send(contests);
+    resp.status(200).json(contests);
 }
 

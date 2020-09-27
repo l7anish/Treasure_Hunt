@@ -6,7 +6,6 @@ let PRIVATE_KEY;
 
 const setupPrivateKey=async ()=>{
     PRIVATE_KEY=await authSetup.readPrivateKey();
-    console.log("private key configured");
 }
 
 setupPrivateKey();

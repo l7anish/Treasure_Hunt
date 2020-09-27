@@ -8,12 +8,18 @@ const config = require('config');
 
 const app=express();
 
+process.env.NODE_ENV=app.get('env');
+
+logging.initializeLogger();
+
 
 database.initializeDB();
 
 routes.initializeRoutes(app);
 
-logging.initializeLogger();
+logger.info(`environment :`+process.env.NODE_ENV);
+
+
 
 
 
