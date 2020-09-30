@@ -100,7 +100,7 @@ async function updateUserLevel(leaderboard) {
 
 async function  addUserToContest (userId,contestId){
 
-    let user=User.findById(userId);
+    let user=await User.findById(userId);
 
     let leaderboard=new LeaderBoard({
         contestId,
