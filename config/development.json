@@ -1,3 +1,4 @@
 {
-    "name": "Treasure-hunt App-development"
+    "name": "Treasure-hunt App-development",
+    "db" : "mongodb://localhost/treasure-hunt"
 }

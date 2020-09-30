@@ -17,7 +17,7 @@ exports.initializeLogger = (app) => {
         }));
     }else{
         logger.add(new logger.transports.DailyRotateFile({
-            filename:'application-%DATE%.log',
+            filename:'app-%DATE%.log',
             colorise: true,
             prettyPrint: true,
             format: format.combine(format.timestamp(),myFormat)

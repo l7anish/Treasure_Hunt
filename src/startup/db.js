@@ -8,7 +8,14 @@ exports.initializeDB=()=>{
         return; //Do not initialise db in test environment
     }
 
-    const db=config.get('db');
+    let db=config.get('db');
+
+    if(process.env.NODE_ENV === 'production'){
+        const dbUser=config.get('dbUser');
+        console.log(dbUser);
+        const dbPassword=config.get('dbPassword');
+    }
+
 
     mongoose.connect(db,
     {
