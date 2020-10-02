@@ -12,8 +12,10 @@ exports.initializeDB=()=>{
 
     if(process.env.NODE_ENV === 'production'){
         const dbUser=config.get('dbUser');
-        console.log(dbUser);
         const dbPassword=config.get('dbPassword');
+
+        db=db.replace('[username]',dbUser);
+        db=db.replace('[password]',dbPassword);
     }
 
 
