@@ -5,9 +5,12 @@ const routes=require('./startup/routes');
 const database=require('./startup/db');
 const config = require('config');
 const initializeProductionSetup=require('./startup/prod');
+const cors=require('cors');
 
 
 const app=express();
+
+app.use(cors());
 
 process.env.NODE_ENV=app.get('env');
 
@@ -18,7 +21,7 @@ database.initializeDB();
 
 routes.initializeRoutes(app);
 
-if(app.get('env') === 'prodution'){
+if(app.get('env') === 'production'){
     initializeProductionSetup(app);
 }
 
