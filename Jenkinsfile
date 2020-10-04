@@ -16,7 +16,7 @@ node {
             echo "testing completed"
             echo "testing completed"
         }
-        if(env.BRANCH_NAME == "develop") {
+        if(env.BRANCH_NAME == "master") {
             stage("Deploy SpringBoot App!") {
                 withCredentials([sshUserPrivateKey(credentialsId: '	treasure_hunt_key_id', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'ubuntu')]) {
                                   remote.user = ubuntu
