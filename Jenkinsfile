@@ -21,7 +21,7 @@ node {
                                   remote.user = ubuntu
                                   remote.identityFile = identity
 
-                                  sshCommand remote: remote, command: 'mkdir testforTreasureHunt'
+                                  sshCommand remote: remote, command: 'echo deployment completed !'
                               }
             }
 }
