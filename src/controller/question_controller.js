@@ -4,6 +4,7 @@ const User=require('../model/user');
 const Contest=require('../model/contest');
 const mongoose=require('mongoose');
 const Joi = require('joi');
+Joi.objectId= require('joi-objectid')(Joi);
 
 exports.getCurrentQuestion=async (req,resp)=>{
 
@@ -99,7 +100,7 @@ async function updateUserLevel(leaderboard) {
 
 async function  addUserToContest (userId,contestId){
 
-    let user=User.findById(userId);
+    let user=await User.findById(userId);
 
     let leaderboard=new LeaderBoard({
         contestId,

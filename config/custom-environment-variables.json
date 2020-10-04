@@ -1,3 +1,4 @@
 {
-    "password":"app_password"
+    "dbUser":"dbUser",
+    "dbPassword":"dbPassword"
 }

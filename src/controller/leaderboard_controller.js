@@ -6,10 +6,11 @@ exports.getLeaderBoardOfContest=async(req,resp)=>{
     let requestBody={};
     let leaderBoardResponse=[];
 
+
     const requestSchema=Joi.object({
         contestId:Joi.objectId().required(),
-        page:Joi.number().required().default(1).min(1),
-        limit:Joi.number().required().default(3).min(3),
+        page:Joi.number().default(1).min(1),
+        limit:Joi.number().default(3).min(3),
     });
 
     requestBody.contestId=req.query.contestId;
@@ -35,7 +36,5 @@ exports.getLeaderBoardOfContest=async(req,resp)=>{
     let count=await LeaderBoard.countDocuments({contestId:requestBody.contestId});
 
     let totalPages= Math.ceil((count/requestBody.limit));
-    console.log(totalPages);
-
     resp.status(200).json({totalPages,leaderBoard:leaderBoardResponse});
 }
