@@ -17,7 +17,7 @@ node {
             echo "testing completed"
         }
         stage("Deploy") {
-                withCredentials([sshUserPrivateKey(credentialsId: '	treasure_hunt_key_id', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'ubuntu')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'treasure_hunt_key_id', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'ubuntu')]) {
                                   remote.user = ubuntu
                                   remote.identityFile = identity
 
