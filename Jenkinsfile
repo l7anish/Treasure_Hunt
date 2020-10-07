@@ -3,7 +3,9 @@ remote.name = "ubuntu"
 remote.host = "15.206.15.125"
 remote.allowAnyHosts = true
 
-properties([pipelineTriggers([githubPush()])])
+triggers {
+    githubPush()
+  }
 
 node {
 
