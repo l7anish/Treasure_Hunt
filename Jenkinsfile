@@ -5,6 +5,10 @@ remote.allowAnyHosts = true
 
 node {
 
+        triggers {
+            githubPush()
+        }
+
         stage ('Compile Stage') {
 
             echo "compiling"
