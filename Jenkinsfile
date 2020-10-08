@@ -5,11 +5,10 @@ remote.name = "ubuntu"
 remote.host = "15.206.15.125"
 remote.allowAnyHosts = true
 
-
+tools {nodejs "node"}
 
 node {
         git url: 'https://github.com/sebin-vincent/Treasure_Hunt.git',branch: 'master'
-        tools {nodejs "node"}
         stage ('Compile Stage') {
 
             echo "compiling"
