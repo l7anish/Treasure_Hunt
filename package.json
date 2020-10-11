@@ -4,7 +4,7 @@
   "description": "Treasure Hunt",
   "main": "index.js",
   "scripts": {
-    "test": "jest --runInBand --verbose --coverage"
+    "test:unit": "jest --testPathPattern=src/tests/unit_tests --runInBand --verbose --coverage"
   },
   "jest": {
     "testEnvironment": "node"
