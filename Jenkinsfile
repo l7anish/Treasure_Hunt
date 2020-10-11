@@ -5,14 +5,13 @@ remote.name = "ubuntu"
 remote.host = "15.206.15.125"
 remote.allowAnyHosts = true
 
-agent {
-                docker { image 'node:lts-buster-slim' }
-}
-
 node {
         
         git url: 'https://github.com/sebin-vincent/Treasure_Hunt.git',branch: 'master'
         stage ('Build') {
+            agent {
+                docker { image 'node:lts-buster-slim' }
+            }
 
             sh 'npm install'
         }
