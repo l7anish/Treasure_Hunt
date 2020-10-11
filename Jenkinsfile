@@ -8,9 +8,9 @@ remote.allowAnyHosts = true
 
 node {
         git url: 'https://github.com/sebin-vincent/Treasure_Hunt.git',branch: 'master'
-        stage ('Compile Stage') {
+        stage ('Build') {
 
-            echo "compiling"
+            npm install
         }
 
         stage ('Testing Stage') {
