@@ -10,7 +10,7 @@ node {
         git url: 'https://github.com/sebin-vincent/Treasure_Hunt.git',branch: 'master'
         stage ('Build') {
 
-            npm install
+            sh npm install
         }
 
         stage ('Testing Stage') {
