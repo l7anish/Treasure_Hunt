@@ -8,7 +8,6 @@ remote.allowAnyHosts = true
 node {
         
         git url: 'https://github.com/sebin-vincent/Treasure_Hunt.git',branch: 'master'
-    }
         stage ('Build') {
             
 
