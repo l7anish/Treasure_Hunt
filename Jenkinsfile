@@ -12,7 +12,6 @@ node {
         stage ('Build') {
             sh 'npm install'
         }
-    }
 
         stage ('Testing Stage') {
 
@@ -27,4 +26,7 @@ node {
                                   sshCommand remote: remote, command: 'echo deployment completed !'
                               }
             }
+    }
+
+        
 }
