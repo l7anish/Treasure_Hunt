@@ -7,6 +7,9 @@ remote.allowAnyHosts = true
 
 
 node {
+        agent {
+                docker { image 'node:lts-buster-slim' }
+        }
         git url: 'https://github.com/sebin-vincent/Treasure_Hunt.git',branch: 'master'
         stage ('Build') {
 
