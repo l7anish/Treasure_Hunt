@@ -13,13 +13,14 @@ pipeline{
         stage('Deploy'){
             
             steps{
-                script{
-                def remote = [:]
-                remote.name = "ubuntu"
-                remote.host = "15.206.15.125"
-                remote.allowAnyHosts = true
-                }
+                
                 withCredentials([sshUserPrivateKey(credentialsId: 'ubuntu', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'ubuntu')]) {
+                                  script{
+                                    def remote = [:]
+                                    remote.name = "ubuntu"
+                                    remote.host = "15.206.15.125"
+                                    remote.allowAnyHosts = true
+                                    }
                                   remote.user = ubuntu
                                   remote.identityFile = identity
 
