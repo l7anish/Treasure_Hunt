@@ -23,10 +23,10 @@ pipeline{
                                     remote.user = ubuntu
                                     remote.identityFile = identity
 
-                                    sshCommand remote: remote, command: 'cd Treasure_Hunt/ ;
-                                     ls;
-                                     pwd;
-                                     '
+                                    sshCommand remote: remote, command: ''' cd Treasure_Hunt/ ;
+                                     ls ;
+                                     pwd ;
+                                     '''
                                     }
                               }
                 echo 'Deploying project'
