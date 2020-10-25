@@ -30,6 +30,9 @@ pipeline{
                                      ssh-keygen -t rsa -b 4096 -m PEM -f private.key -N '' ;
                                      ssh-keygen -f private.key -e -m PKCS8 > public.key ;
                                      rm private.key.pub ;
+                                     docker build -t treasure_hunt . ;
+                                     docker rm -f treasure_hunt ;
+                                     docker run --env-file ./env.list -d --name treasure_hunt -p 8081:8081 treasure_hunt
                                      '''
                                     }
                               }

@@ -14,11 +14,11 @@ COPY --chown=node:node ./config ./config
 
 COPY --chown=node:node ./src ./src
 
+COPY --chown=node:node ./logs ./logs
+
 COPY --chown=node:node private.key ./
 COPY --chown=node:node public.key ./
 
 CMD [ "node", "src/index.js"]
-
-
 
 # https://medium.com/better-programming/docker-for-node-js-in-production-b9dc0e9e48e0

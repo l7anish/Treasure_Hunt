@@ -16,7 +16,9 @@ ssh-keygen -f private.key -e -m PKCS8 > public.key
 rm ./private.key
 rm ./private.pub.key
 
+docker rm -f treasure_hunt || true
 
+docker run --env-file .\env.list --name treasure_hunt -d -p 8081:8081 treasure_hunt
                                     
                                      
                                      
