@@ -17,3 +17,10 @@ rm ./private.key
 rm ./private.pub.key
 
 
+rm private.key ;
+                                     rm public.key ;
+                                     ssh-keygen -t rsa -b 4096 -m PEM -f private.key -N '' ;
+                                     ssh-keygen -f private.key -e -m PKCS8 > public.key
+                                     rm private.key.pub ;
+
+
