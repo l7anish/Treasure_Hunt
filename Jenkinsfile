@@ -23,9 +23,8 @@ pipeline{
                                     remote.user = ubuntu
                                     remote.identityFile = identity
 
-                                    sshCommand remote: remote, command: ''' cd Treasure_Hunt/ ;
-                                     ls ;
-                                     pwd ;
+                                    sshCommand remote: remote, command: '''cd Treasure_Hunt/ ;
+                                     git pull origin master ;
                                      '''
                                     }
                               }
