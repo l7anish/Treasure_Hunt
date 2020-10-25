@@ -3,3 +3,6 @@ package-lock.json
 coverage
 app-*.log
 env.list
+private.key
+public.key
+private.key.pub
