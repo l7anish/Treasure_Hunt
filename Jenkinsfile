@@ -24,7 +24,7 @@ pipeline{
                                     remote.identityFile = identity
 
                                     sshCommand remote: remote, command: 'cd Treasure_Hunt/'
-                                    sshCommand remote: remote, command: 'git pull origin master'
+                                    sshCommand remote: remote, command: 'ls'
                                     }
                               }
                 echo 'Deploying project'
