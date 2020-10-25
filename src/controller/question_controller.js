@@ -36,8 +36,9 @@ exports.getCurrentQuestion=async (req,resp)=>{
             questionId:question._id,
             question:question.questionBody,
             imageUrl:question.image,
-            level:question.level,
             clues:activeClues,
+            level:question.level,
+            timeCompleted:leaderboard.lastUpdated,
             lastQuestion:false
         }
 
@@ -49,6 +50,8 @@ exports.getCurrentQuestion=async (req,resp)=>{
             question:null,
             imageUrl:null,
             clues:null,
+            level:leaderboard.level,
+            timeCompleted:leaderboard.lastUpdated,
             lastQuestion:true});
     }
     
