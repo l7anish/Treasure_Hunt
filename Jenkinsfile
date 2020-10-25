@@ -23,7 +23,8 @@ pipeline{
                                     remote.user = ubuntu
                                     remote.identityFile = identity
 
-                                    sshCommand remote: remote, command: 'mkdir testDirectory'
+                                    sshCommand remote: remote, command: 'cd Treasure_Hunt/'
+                                    sshCommand remote: remote, command: 'git pull origin master'
                                     }
                               }
                 echo 'Deploying project'
