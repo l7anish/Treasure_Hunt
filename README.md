@@ -2,7 +2,7 @@
 An online Treasure hunt game based on questions and clues. Capable of conducting multiple contests at same time.
 
 ## FrontEnd
-Please find the front end for app in the [link] (https://github.com/Benin-Tom-Jose/treasure-hunt-frontend)
+Please find the front end for app in the [link](https://github.com/Benin-Tom-Jose/treasure-hunt-frontend)
 
 ## Stack
 * NodeJs,ExpresJs
@@ -35,10 +35,10 @@ npm run integration test
 openssl genrsa -out ./private.key 4096
 openssl rsa -in private.key -pubout -outform PEM -out public.key
 ```
-Refer link: https://docs.mia-platform.eu/docs/runtime_suite/client-credentials/jwt-private-public-key-generation
+Refer link [jwt-private-public-key-generation](https://docs.mia-platform.eu/docs/runtime_suite/client-credentials/jwt-private-public-key-generation)
 
 
-7. create file env.list with arguments(ex: NODE_ENV,dbUser,dbPassword) like below
+7. create file env.list with arguments (ex: NODE_ENV,dbUser,dbPassword) like below
 ```
 NODE_ENV=development
 dbUser=<dbUserName>
