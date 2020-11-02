@@ -38,7 +38,7 @@ openssl rsa -in private.key -pubout -outform PEM -out public.key
 Refer link: https://docs.mia-platform.eu/docs/runtime_suite/client-credentials/jwt-private-public-key-generation
 
 
-7. create file env.list with arguments (ex: NODE_ENV,dbUser,dbPassword) like below
+7. create file env.list with arguments(ex: NODE_ENV,dbUser,dbPassword) like below
 ```
 NODE_ENV=development
 dbUser=<dbUserName>
