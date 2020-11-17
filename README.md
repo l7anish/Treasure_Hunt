@@ -20,12 +20,12 @@ Please find the React frontend for app in the [link](https://github.com/Benin-To
 
 3. Install npm
 
-4. Run ### Unit Test
+4. Run <b>Unit Test</b>
 ```
 npm run test:unit
 ```
 
-5. Run ### Integration test
+5. Run <b>Integration Test</b>
 ```
 npm run integration test
 ```
