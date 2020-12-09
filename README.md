@@ -2,7 +2,7 @@
 An online Treasure hunt game based on questions and clues. Capable of conducting multiple contests at same time.
 
 ## FrontEnd
-Please find the React frontend for app in the [link](https://github.com/Benin-Tom-Jose/treasure-hunt-frontend)
+Please find the React frontend for this app in the [link](https://github.com/Benin-Tom-Jose/treasure-hunt-frontend)
 
 ## Stack
 * NodeJs,ExpresJs
