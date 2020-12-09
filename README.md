@@ -27,7 +27,7 @@ npm run test:unit
 
 5. Run integration test
 ```
-npm run integration test
+npm run test:integration
 ```
 
 6. Generate RSA256 public_key/private_key pairs for JWT token generation and verification
