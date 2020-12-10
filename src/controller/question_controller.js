@@ -5,10 +5,12 @@ const Contest=require('../model/contest');
 const mongoose=require('mongoose');
 const Joi = require('joi');
 Joi.objectId= require('joi-objectid')(Joi);
+const logger=require('winston');
 
 exports.getCurrentQuestion=async (req,resp)=>{
-
     const userId=req.user.id;
+
+    logger.info(`Request to get current question from userId: ${userId}`);
 
     const contestId=req.query.contestId;
 
@@ -23,13 +25,13 @@ exports.getCurrentQuestion=async (req,resp)=>{
     let leaderboard=await LeaderBoard.findOne({userId,contestId});
 
     if(! leaderboard){
-        console.log("Adding user to contest !");
+        logger.info(`Adding user to contest userId: ${userId}`);
         leaderboard=await addUserToContest(userId,contestId);
     }
     let question=await Question.findOne({contestId,level:leaderboard.level});
 
     if(question){
-
+        logger.info(`Serving question with questionId: ${question.level} to userId: ${userId}`);
         let activeClues=[];
         activeClues=question.clues.filter(clue=> clue.number<=question.currentClue);
 
@@ -46,6 +48,7 @@ exports.getCurrentQuestion=async (req,resp)=>{
 
         resp.status(200).json(questionResponse);
     }else{
+        logger.info(`Request for final question by userId ${userId}`);
         resp.status(200).json({
             contestId,
             questionId:null,
