@@ -27,11 +27,13 @@ exports.initializeLogger = (app) => {
     }
 
     process.on('uncaughtException', error => {
+        console.log('uncaughtException'+error);
         logger.error('uncaughtException'+error);
         process.exit(1);
     });
 
     process.on('unhandledRejection', error => {
+        console.log('unhandledRejection'+error);
         logger.error('unhandledRejection :'+error);
         process.exit(1);
     });
