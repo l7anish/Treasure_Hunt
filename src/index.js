@@ -22,6 +22,7 @@ database.initializeDB();
 routes.initializeRoutes(app);
 
 if(app.get('env') === 'production'){
+    logger.info(`Initializing production setup`)
     initializeProductionSetup(app);
 }
 
