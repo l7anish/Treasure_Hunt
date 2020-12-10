@@ -5,10 +5,12 @@ const Contest=require('../model/contest');
 const mongoose=require('mongoose');
 const Joi = require('joi');
 Joi.objectId= require('joi-objectid')(Joi);
+const logger=require('winston');
 
 exports.getCurrentQuestion=async (req,resp)=>{
-
     const userId=req.user.id;
+
+    logger.info(`Request to get current question from userId: ${userId}`);
 
     const contestId=req.query.contestId;
 
@@ -18,16 +20,18 @@ exports.getCurrentQuestion=async (req,resp)=>{
 
     if(! contest) throw({httpStatus:404,message:"Contest doesn't exist"});
 
+    if(! (contest.active && contest.started)) throw({httpStatus:400,message:"Contest not active yet"});
+    
     let leaderboard=await LeaderBoard.findOne({userId,contestId});
 
     if(! leaderboard){
-        console.log("Adding user to contest !");
+        logger.info(`Adding user to contest userId: ${userId}`);
         leaderboard=await addUserToContest(userId,contestId);
     }
     let question=await Question.findOne({contestId,level:leaderboard.level});
 
     if(question){
-
+        logger.info(`Serving question with questionId: ${question.level} to userId: ${userId}`);
         let activeClues=[];
         activeClues=question.clues.filter(clue=> clue.number<=question.currentClue);
 
@@ -44,6 +48,7 @@ exports.getCurrentQuestion=async (req,resp)=>{
 
         resp.status(200).json(questionResponse);
     }else{
+        logger.info(`Request for final question by userId ${userId}`);
         resp.status(200).json({
             contestId,
             questionId:null,
@@ -71,8 +76,9 @@ exports.submitQuestionAnswer= async (req,resp)=>{
         throw ({httpStatus:400,message:ex.details[0].message})
     }
 
-    
     const userId=req.user.id;
+
+    logger.info(`Request to submit answer from userId ${userId}`)
 
     let contest=await Contest.findById(requestBody.contestId);
     if(! contest) throw({httpStatus:404,message:"Contest doesn't exist"});
@@ -83,10 +89,13 @@ exports.submitQuestionAnswer= async (req,resp)=>{
     let question=await Question.findOne({level:leaderboard.level,enabled:true});
     if(!question) throw({httpStatus:400,message:"Bad request"});
 
-    if(requestBody.answer===question.answer){
+    const submitedAnswer=requestBody.answer;
+    if(submitedAnswer===question.answer){
+        logger.info(`Correct answer: ${submitedAnswer} submission for level ${question.level} by from userId: ${userId}`);
         await updateUserLevel(leaderboard);
         resp.status(200).send(true);
     }else{
+        logger.info(`Wrong answer: ${submitedAnswer} submission for level ${question.level} by from userId: ${userId}`);
         resp.status(200).send(false);
     }
 

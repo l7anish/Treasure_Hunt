@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const config=require('config');
-
+const logger=require('winston');
 
 exports.initializeDB=()=>{
 
@@ -9,10 +9,12 @@ exports.initializeDB=()=>{
     }
 
     let db=config.get('db');
+    const dbUser=config.get('dbUser');
+    const dbPassword=config.get('dbPassword');
 
     if(process.env.NODE_ENV === 'production'){
-        const dbUser=config.get('dbUser');
-        const dbPassword=config.get('dbPassword');
+        logger.info('Initialising db for PRODUCTION environment');
+        logger.info(`Database name ${dbUser}`);
 
         db=db.replace('[username]',dbUser);
         db=db.replace('[password]',dbPassword);
@@ -25,5 +27,5 @@ exports.initializeDB=()=>{
         useCreateIndex: true,
         useUnifiedTopology: true
     })
-    .then(() => { console.info(`connected to mongodb..., ${db}`) });
+    .then(() => { logger.info(`connected to mongodb. Database name : ${dbUser}`) });
 }

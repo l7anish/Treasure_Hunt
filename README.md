@@ -2,7 +2,7 @@
 An online Treasure hunt game based on questions and clues. Capable of conducting multiple contests at same time.
 
 ## FrontEnd
-Please find the React frontend for app in the [link](https://github.com/Benin-Tom-Jose/treasure-hunt-frontend)
+Please find the React frontend for this app in the [link](https://github.com/Benin-Tom-Jose/treasure-hunt-frontend)
 
 ## Stack
 * NodeJs,ExpresJs
@@ -27,7 +27,7 @@ npm run test:unit
 
 5. Run <b>Integration Test</b>
 ```
-npm run integration test
+npm run test:integration
 ```
 
 6. Generate RSA256 public_key/private_key pairs for JWT token generation and verification

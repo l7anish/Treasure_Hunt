@@ -1,11 +1,13 @@
 const LeaderBoard=require('../model/leaderboard');
 const Joi=require('joi');
-Joi.objectId = require('joi-objectid')(Joi)
+Joi.objectId = require('joi-objectid')(Joi);
+const logger=require('winston');
 
 exports.getLeaderBoardOfContest=async(req,resp)=>{
     let requestBody={};
     let leaderBoardResponse=[];
-
+    
+    logger.info(`Request to view leaderboard`);
 
     const requestSchema=Joi.object({
         contestId:Joi.objectId().required(),
