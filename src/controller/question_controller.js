@@ -18,6 +18,8 @@ exports.getCurrentQuestion=async (req,resp)=>{
 
     if(! contest) throw({httpStatus:404,message:"Contest doesn't exist"});
 
+    if(! (contest.active && contest.started)) throw({httpStatus:400,message:"Contest not active yet"});
+    
     let leaderboard=await LeaderBoard.findOne({userId,contestId});
 
     if(! leaderboard){
