@@ -16,6 +16,8 @@ COPY --chown=node:node ./src ./src
 
 COPY --chown=node:node ./logs ./logs
 
+VOLUME [ ./logs ]
+
 COPY --chown=node:node private.key ./
 COPY --chown=node:node public.key ./
 
