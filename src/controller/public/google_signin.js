@@ -58,9 +58,4 @@ exports.login = async (req, resp) => {
         return resp.status(403).send("Forbidden");
     }
 
-
-
-
-
-
 }
