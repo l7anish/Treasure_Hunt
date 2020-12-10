@@ -52,7 +52,7 @@ exports.login = async (req, resp) => {
     } else {
 
         if (!payload.email.includes('@litmus7.com')) {
-            return resp.status(400).send("Login with Litmus7 email")
+            return resp.status(400).send("Login with Litmus7 email");
         }
 
         return resp.status(403).send("Forbidden");

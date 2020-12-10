@@ -10,12 +10,14 @@ exports.initializeLogger = (app) => {
       });
 
     if((process.env.NODE_ENV==='development') || (process.env.NODE_ENV==='test')){
+        console.log("Logging initialized to console");
         logger.add(new logger.transports.Console(
             {colorise: true,
             prettyPrint: true,
             format: format.combine(format.timestamp(),myFormat,format.errors({ stack: true }))
         }));
     }else{
+        console.log("Logging initialized to File");
         logger.add(new logger.transports.DailyRotateFile({
             filename:'./logs/app-%DATE%.log',
             colorise: true,
