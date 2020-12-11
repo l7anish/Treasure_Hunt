@@ -32,7 +32,8 @@ pipeline{
                                      rm private.key.pub ;
                                      docker build -t treasure_hunt . ;
                                      docker rm -f treasure_hunt ;
-                                     docker run --env-file ./env.list -d --name treasure_hunt -p 8081:8081 treasure_hunt ;
+                                     docker run --env-file ./env.list -d -v ~/Treasure_Hunt/logs:/home/node/app/logs
+ --name treasure_hunt -p 8081:8081 treasure_hunt ;
                                      '''
                                     }
                               }
