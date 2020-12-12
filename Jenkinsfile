@@ -14,11 +14,11 @@ pipeline{
             
             steps{
                 
-                withCredentials([sshUserPrivateKey(credentialsId: 'ubuntu', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'ubuntu')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'incognito', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'ubuntu')]) {
                                   script{
                                     def remote = [:]
                                     remote.name = "ubuntu"
-                                    remote.host = "15.206.15.125"
+                                    remote.host = "65.0.247.253"
                                     remote.allowAnyHosts = true
                                     remote.user = ubuntu
                                     remote.identityFile = identity
@@ -31,7 +31,7 @@ pipeline{
                                      ssh-keygen -f private.key -e -m PKCS8 > public.key ;
                                      rm private.key.pub ;
                                      docker build -t treasure_hunt . ;
-                                     docker rm -f treasure_hunt ;
+                                     docker rm -f treasure_hunt || true ;
                                      docker run --env-file ./env.list -d -v ~/Treasure_Hunt/logs:/home/node/app/logs \
  --name treasure_hunt -p 8081:8081 treasure_hunt ;
                                      '''
