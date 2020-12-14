@@ -6,6 +6,8 @@ const database=require('./startup/db');
 const config = require('config');
 const initializeProductionSetup=require('./startup/prod');
 const cors=require('cors');
+const fs =require('fs');
+const https=require('https');
 
 
 const app=express();
@@ -26,11 +28,21 @@ if(app.get('env') === 'production'){
     initializeProductionSetup(app);
 }
 
-
-
-
-
+var server;
 const port=config.get('port');
-const server= app.listen(port, () => {logger.info(`listening on port ${port}...`);});
+
+
+if(app.get('env') === 'production'){
+    logger.info(`Securing network traffic`);
+
+    const sslOptions={
+        key: fs.readFileSync(privateKeyPath),
+        certificate: fs.readFileSync(certificatePath)
+    };
+    server=https.createServer(sslOptions,app).listen(port,()=>{logger.info(`listening on port ${port}...`);});
+    
+}else{
+    server= app.listen(port, () => {logger.info(`listening on port ${port}...`);});
+}
 
 module.exports=server;

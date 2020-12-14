@@ -1,4 +1,6 @@
 {
     "dbUser":"dbUser",
-    "dbPassword":"dbPassword"
+    "dbPassword":"dbPassword",
+    "privateKeyPath":"privateKeyPath",
+    "certificatePath":"certificatePath"
 }
