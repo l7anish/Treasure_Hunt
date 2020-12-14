@@ -34,7 +34,7 @@ pipeline{
                                      docker rm -f treasure_hunt || true ;
                                      rm ./logs/*.*
                                      docker run --env-file ./env.list -d -v ~/Treasure_Hunt/logs:/home/node/app/logs \
- --name treasure_hunt -p 8081:8081 treasure_hunt ;
+ -v /etc/incognito/live/ssl:/etc/incognito/live/ssl  --name treasure_hunt -p 8081:8081 treasure_hunt ;
                                      '''
                                     }
                               }
