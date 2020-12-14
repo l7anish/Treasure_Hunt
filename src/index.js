@@ -36,11 +36,11 @@ if(app.get('env') === 'production'){
     logger.info(`Securing network traffic`);
 
     const sslOptions={
-        key: fs.readFileSync(privateKeyPath),
-        certificate: fs.readFileSync(certificatePath)
+        key: fs.readFileSync(config.get('privateKeyPath')),
+        certificate: fs.readFileSync(config.get('certificatePath'))
     };
     server=https.createServer(sslOptions,app).listen(port,()=>{logger.info(`listening on port ${port}...`);});
-    
+
 }else{
     server= app.listen(port, () => {logger.info(`listening on port ${port}...`);});
 }
