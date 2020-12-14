@@ -1,5 +1,5 @@
 {
     "name":"Treasure-hunt",
-    "port": 443,
+    "port": 8081,
     "db":"mongodb://localhost/treasure-hunt"
 }
