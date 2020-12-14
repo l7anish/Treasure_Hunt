@@ -1,10 +1,13 @@
 const Contest=require('../model/contest');
+const logger=require('winston');
 
 
 exports.getActiveContests=async (req,resp)=>{
 
     //find all active contests
     let contests=await Contest.find({active:true});
+
+    logger.info(contests);
 
     contests=contests ? contests: [];
 
