@@ -37,7 +37,7 @@ if(app.get('env') === 'production'){
 
     const sslOptions={
         key: fs.readFileSync(config.get('privateKeyPath'),'utf-8'),
-        certificate: fs.readFileSync(config.get('certificatePath'),'utf-8')
+        cert: fs.readFileSync(config.get('certificatePath'),'utf-8')
     };
     server=https.createServer(sslOptions,app).listen(port,()=>{logger.info(`listening on port ${port}...`);});
 
