@@ -5,6 +5,7 @@ const errorHandler=require('../middlewares/errorhandler');
 const contestRoutes=require('../routes/contest_routes');
 const leaderBoardRoutes=require('../routes/leaderboard_routes');
 const questionRoute=require('../routes/question_routes');
+const feedbackController=require('../controller/public/feedbackController');
 
 
 
@@ -13,6 +14,7 @@ exports.initializeRoutes=(app)=>{
 
     //general apis
     app.post('/google/login',asyncHandler(googleSignIn.login));
+    app.post('/api/feedback',asyncHandler(feedbackController.submitFeedback));
 
 
     app.use('/api/contests',contestRoutes);
